@@ -1,0 +1,21 @@
+<ion-view view-title="Login">
+  <ion-content class="padding">
+    <div class="list list-inset">
+
+        <label class="item item-input">
+          <input type="text" placeholder="Username" ng-model="user.username" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="user.password" required>
+
+      </div>
+    <button  ng-click='login()' class="button button-block button-positive">LOGIN</button>
+    </form>
+
+    <div class='text-center'>
+      <p>OR</p>
+    </div>
+    <a href='#/signup' class="button button-block button-positive">Sign Up</a>
+
+  </ion-content>
+</ion-view>
