@@ -2,7 +2,7 @@ angular.module('starter')
 .factory('LoginService', ['$http', '$q', '$log',function ($http, $q, $log) {
   return {
 
-    login: function (userObj){
+    login: function (userObj) {
       var deferred = $q.defer();
       $http.post('http://yodelappbcjmm.herokuapp.com/login',userObj)
 
