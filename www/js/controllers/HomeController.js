@@ -3,7 +3,6 @@
 
   .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation){
 
-    // console.log(currentUser);
 
     $scope.doItLive = function() {
 
@@ -19,9 +18,14 @@
         $scope.newLocation.lat = position.coords.latitude;
         var newLocation = $scope.newLocation;
         console.log(newLocation);
+        return newLocation
       })
       .then(function(newLocation){
         HomeService.goActive(newLocation)
+        .then(function(result){
+          $scope.usersInRange = result.data;
+          console.log(result.data);
+        })
       })
     }
   })

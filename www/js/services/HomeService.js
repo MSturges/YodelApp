@@ -5,12 +5,20 @@ angular.module('starter')
     goActive: function (newLocation){
       var deferred = $q.defer();
 
-      
+      var currentUser = localStorage.getItem('Token')
 
-      $http.get('http://yodelappbcjmm.herokuapp.com/goactive', newLocation)
+      var activeLocation = {
+        currentUser: currentUser,
+        lat: newLocation.lat,
+        long: newLocation.long,
+        active: true
+      }
+
+      console.log(activeLocation);
+
+      $http.post('http://yodelappbcjmm.herokuapp.com/goactive', activeLocation)
 
       .then(function(success){
-        console.log(success);
         deferred.resolve(success)
       })
 
@@ -18,7 +26,7 @@ angular.module('starter')
         deferred.reject(error)
       })
       return deferred.promise;
-    },
+    }
 
   }
 }])
