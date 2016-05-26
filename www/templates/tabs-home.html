@@ -1,7 +1,14 @@
-<ion-view view-title="HOME">
-  <ion-content class="padding">
+<ion-view view-title="Home">
+  <ion-content>
+    <ion-item class="list-item" ng-repeat='user in usersInRange'>
 
-    <h1>Fuck it We'll do it LIVE!!!</h1>
+        <div class="item-avatar" href="#">
+          <img src="../../img/YodelSkills.jpg">
+          <h2>{{user.username}}</h2>
+          <p>Lat:{{user.lat}}, Long: {{user.long}}</p>
+        </div>
 
+
+    </ion-item>
   </ion-content>
 </ion-view>

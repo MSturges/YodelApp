@@ -17,34 +17,9 @@ angular.module('starter')
   .state('tabs.home', {
     url: '/home',
     views: {
-      'tab-home': {
+      'tabs-home': {
         templateUrl: 'templates/tabs-home.html',
         controller: 'HomeCtrl'
-      }
-    },
-    resolve: {
-      theUser: function($http,$log,$state) {
-        if(localStorage.getItem('Token')) {
-          $log.info('checking for token....')
-          const config = {
-            headers: {
-              authorization: 'Bearer ' + localStorage.getItem('Token')
-            }
-          }
-          return $http.get('http://yodelappbcjmm.herokuapp.com/me',config)
-          .then(function(response) {
-            $log.info('from the resolve:',response)
-            $log.info(response.data)
-            return response.data
-            $state.go('tab.home')
-          })
-          .catch(function () {
-            $log.info('there was an error')
-            localStorage.clear();
-            return null;
-            $state.go('login')
-          })
-        }
       }
     }
   })

@@ -11,7 +11,7 @@
 
       .then(function(success){
         $log.info(success);
-        $scope.user = null;
+        // $scope.user = null;
         localStorage.setItem('Token', success.data.token);
         $state.go('tabs.home')
       })
