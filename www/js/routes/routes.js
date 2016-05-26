@@ -59,6 +59,16 @@ angular.module('starter')
     }
   })
 
+  .state('tabs.chat', {
+    url: '/:userId',
+    views: {
+      'tab-chat': {
+        templateUrl: 'templates/tabs-chat.html',
+        controller: 'ChatCtrl'
+      }
+    }
+  })
+
   .state('tabs', {
     url: '/tabs',
     abstract: true,

@@ -4,7 +4,7 @@
   </div>
   <ion-content class="has-header">
     <h3 class="text-center">Welcome {{currentUser.name}}! Start Yodelin'</h3>
-    <ion-item class="list-item" ng-repeat='user in usersInRange'>
+    <ion-item class="list-item" ng-repeat='user in usersInRange' ui-sref="tabs.chat({id: user.id})">
       <div class="item-avatar" href="#">
         <img src="../../img/YodelSkills.jpg">
         <h2>{{user.username}}</h2>
