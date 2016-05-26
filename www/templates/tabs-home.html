@@ -1,9 +1,9 @@
 <ion-view view-title="Home">
-  <h3 class="text-center">Welcome {{currentUser.name}}! Start Yodelin'</h3>
+  <div class="bar bar-header bar-stable">
+    <h1 class="title">Yodelers</h1>
+  </div>
   <ion-content class="has-header">
-    <div class="bar bar-header bar-stable">
-      <h1 class="title">Yodelers</h1>
-    </div>
+    <h3 class="text-center">Welcome {{currentUser.name}}! Start Yodelin'</h3>
     <ion-item class="list-item" ng-repeat='user in usersInRange'>
       <div class="item-avatar" href="#">
         <img src="../../img/YodelSkills.jpg">
