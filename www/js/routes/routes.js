@@ -62,6 +62,17 @@
       }
     })
 
+    .state('tabs.chat', {
+      url: '/:userId',
+      views: {
+        'tab-chat': {
+          templateUrl: 'templates/tabs-chat.html',
+          controller: 'ChatCtrl'
+        }
+      }
+    })
+
+
     .state('tabs', {
       url: '/tabs',
       abstract: true,
@@ -103,7 +114,7 @@
     $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams, options){
       // event.preventDefault();
-    if(toState.protected && !localStorage.getItem('Token')) {
+      if(toState.protected && !localStorage.getItem('Token')) {
         console.log("requires login dude!!!");
         const LoginError = "Please Login!"
         $state.go('login')
@@ -111,19 +122,19 @@
     })
   });
   angular.module('starter').factory('authInterceptor', function ($location) {
-     return {
-       request: function(config) {
-         if (localStorage.getItem('token')) {
-           config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
-         }
-         return config;
-       },
-       responseError: function(response) {
-         console.log('from the interceptor: ',response);
-         return response;
-       }
-     };
-   })
+    return {
+      request: function(config) {
+        if (localStorage.getItem('token')) {
+          config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
+        }
+        return config;
+      },
+      responseError: function(response) {
+        console.log('from the interceptor: ',response);
+        return response;
+      }
+    };
+  })
 
 
 }());

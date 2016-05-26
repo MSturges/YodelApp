@@ -13,7 +13,7 @@
     </form>
     <input type="range" name="volume" min="0" max="50" ng-model="rangeValue" ng-change="drag(rangeValue)">
     <div>Distance: {{rangeValue / 10 }} miles</div>
-    <ion-item class="list-item" ng-repeat='user in usersInRange | filter: search' ng-show="lessThan(user.distance)">
+    <ion-item class="list-item" ng-repeat='user in usersInRange | filter: search' ng-show="lessThan(user.distance)" ui-sref="tabs.chat({id: user.id})">
       <div class="item-avatar" href="#">
         <img src="../../img/YodelSkills.jpg">
         <h2>{{user.username}}</h2>
