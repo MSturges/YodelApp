@@ -12,7 +12,7 @@
       LoginService.login(userObj)
 
       .then(function(success){
-        $log.info(success);
+        $log.info('success: ',success);
         localStorage.setItem('Token',success.data.token)
         $state.go('tabs.home')
       })
