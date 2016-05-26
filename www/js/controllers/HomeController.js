@@ -1,8 +1,8 @@
 (function() {
   angular.module('starter')
-    .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation, currentUser) {
-      $log.info('currentuser====', currentUser)
-      $scope.currentUser = currentUser
+    .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation) {
+      // $log.info('currentuser====', currentUser)
+      // $scope.currentUser = currentUser
       $scope.doItLive = function() {
 
         var posOptions = {
