@@ -4,7 +4,10 @@
   </div>
   <ion-content class="has-header">
     <h3 class="text-center">Welcome {{currentUser.name}}! Start Yodelin'</h3>
-    <ion-item class="list-item" ng-repeat='user in usersInRange'>
+    <br><br>
+    <input type="range" name="volume" min="0" max="50" ng-model="rangeValue" ng-change="drag(rangeValue)">
+    <div>Distance: {{rangeValue / 10 }} miles</div>
+    <ion-item class="list-item" ng-repeat='user in usersInRange' ng-show="lessThan(user.distance)">
       <div class="item-avatar" href="#">
         <img src="../../img/YodelSkills.jpg">
         <h2>{{user.username}}</h2>
