@@ -1,8 +1,6 @@
 (function() {
   angular.module('starter')
     .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation) {
-      // $log.info('currentuser====', currentUser)
-      // $scope.currentUser = currentUser
       $scope.doItLive = function() {
 
         var posOptions = {
@@ -27,7 +25,6 @@
                   element.distance = (Math.acos(Math.sin($scope.newLocation.lat * Math.PI / 180) * Math.sin(element.lat * Math.PI / 180) + Math.cos($scope.newLocation.lat * Math.PI / 180) * Math.cos(element.lat * Math.PI / 180) * Math.cos((element.long * Math.PI / 180) - ($scope.newLocation.long * Math.PI / 180))) * 3959)
                 })
                 $scope.usersInRange = results.data;
-                console.log(results.data);
               })
           })
       }
@@ -38,8 +35,6 @@
 
       $scope.rangeValue = 30;
       $scope.lessThan = function(input) {
-        // console.log('input: ' + input);
-        // console.log('rangeValue: ' + $scope.rangeValue)
         if ((input * 10) < $scope.rangeValue){
           return true
         } else {
