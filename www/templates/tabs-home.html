@@ -1,15 +1,15 @@
 <ion-view view-title="Home">
-  <ion-content>
+  <ion-content class="has-header">
     <h3 class="text-center">Welcome {{currentUser.name}}! Start Yodelin'</h3>
+    <div class="bar bar-header bar-stable">
+      <h1 class="title">Yodelers</h1>
+    </div>
     <ion-item class="list-item" ng-repeat='user in usersInRange'>
-
-        <div class="item-avatar" href="#">
-          <img src="../../img/YodelSkills.jpg">
-          <h2>{{user.username}}</h2>
-          <p>Lat:{{user.lat}}, Long: {{user.long}}</p>
-        </div>
-
-
+      <div class="item-avatar" href="#">
+        <img src="../../img/YodelSkills.jpg">
+        <h2>{{user.username}}</h2>
+        <p>Lat:{{user.lat}}, Long: {{user.long}}</p>
+      </div>
     </ion-item>
   </ion-content>
 </ion-view>
