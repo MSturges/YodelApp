@@ -8,7 +8,11 @@
       <div class="item-avatar" href="#">
         <img src="../../img/YodelSkills.jpg">
         <h2>{{user.username}}</h2>
-        <p>Lat:{{user.lat}}, Long: {{user.long}}</p>
+        <ng-pluralize count="user.distance"
+                      when="{'0': 'No comments yet',
+                             '1': 'View 1 comment',
+                             'other': 'Distance from you: {{user.distance | number: 1}} miles.'}">
+        </ng-pluralize>
       </div>
     </ion-item>
   </ion-content>
