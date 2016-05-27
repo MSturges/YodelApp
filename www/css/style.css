@@ -11,9 +11,9 @@ body {
 }
 
 .backimg {
-  /*background-repeat: no-repeat;
-  width: 100%;
-  background-image: url('../img/yodellogobackground.jpg');*/
+  /*background-repeat: no-repeat;*/
+  /*width: 100%;*/
+  /*background-image: url('../img/yodellogobackground.jpg');*/
   vertical-align: top;
   z-index: -1000;
   width: 100%;
