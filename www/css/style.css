@@ -6,6 +6,55 @@ body {
   top: 0;
   width: 100%;
   z-index: 10000;
+  -webkit-animation-delay: 2s;
+
+}
+
+#backgroundImg {
+  position: fixed;
+  z-index: -1000;
+  background-repeat: no-repeat;
+  /*background-image: url('../img/yodellogobackground.jpg');*/
+  width: 100%;
+  background-size:contain;
+
+}
+
+#yodelbutton {
+  z-index: 1000
+}
+
+.searchAndDistance {
+  width: 100%;
+  background-color: rgb(252, 224, 164);
+  position: relative;
+  padding: 0px;
+}
+
+.searchDiv {
+  width:40%;
+  margin-left: 3%;
+  margin-right: 5%;
+  top: -7px;
+  position: relative;
+  display: inline-block;
+
+}
+
+.dragDiv {
+  width: 40%;
+  margin-left: 5%;
+  top: 2px;
+  display: inline-block;
+  position: relative;
+}
+
+.searchField {
+  width: 100%;
+}
+
+.dragBar {
+  width: 100%;
 }
 
 .bar-yellow {
@@ -15,9 +64,22 @@ body {
   background-color: rgb(255, 214, 127);
 }
 
+.tabs-color-yellow {
+  background-color: rgb(255, 214, 127);
+}
+
+.tabs .tab-item .icon.mcfly {
+  bottom: 10px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/yodellogosmall.jpg');
+  background-size:contain;
+}
+
 ion-content {
   /*background-color: rgb(255, 214, 127);;*/
-  background-color: rgb(255, 243, 220);;
+  background-color: rgb(255, 243, 220);
 }
 
 .no-border {
