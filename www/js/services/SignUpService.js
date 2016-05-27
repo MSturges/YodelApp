@@ -5,7 +5,7 @@ return {
 
     signUp: function (userObj){
       var deferred = $q.defer();
-      $http.post('http://yodelappbcjmm.herokuapp.com/settings', userObj)
+      $http.post('http://yodelappbcjmm.herokuapp.com/signup', userObj)
       .then(function(success){
         deferred.resolve(success)
       })
