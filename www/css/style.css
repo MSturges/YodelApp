@@ -3,20 +3,27 @@ body {
 
 #landingImg {
   position: fixed;
-  top: 0;
   width: 100%;
   z-index: 10000;
   -webkit-animation-delay: 2s;
+}
 
+.backimg {
+  /*background-repeat: no-repeat;
+  width: 100%;
+  background-image: url('../img/yodellogobackground.jpg');*/
+
+  z-index: -1000;
+  width: 100%;
+  position: fixed;
 }
 
 #backgroundImg {
   position: fixed;
   z-index: -1000;
   background-repeat: no-repeat;
-  /*background-image: url('../img/yodellogobackground.jpg');*/
   width: 100%;
-  background-size:contain;
+  background-size: cover !important;
 
 }
 
