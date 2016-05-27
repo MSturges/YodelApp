@@ -16,7 +16,7 @@
       .getCurrentPosition(posOptions)
       .then(function(position) {
         $scope.newLocation = {};
-        $scope.newLocation.id = $rootScope.currentUser.id
+        $scope.newLocation.id = Number(localStorage.getItem('currentId'));
         $scope.newLocation.long = position.coords.longitude;
         $scope.newLocation.lat = position.coords.latitude;
         var newLocation = $scope.newLocation;
@@ -45,12 +45,6 @@
         return false
       }
     }
-
-
-
-
-
-
     // var me = this;
     //
     //       me.current_room = localStorageService.get('room');

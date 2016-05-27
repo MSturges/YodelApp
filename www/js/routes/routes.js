@@ -29,7 +29,7 @@
           controller: 'HomeCtrl'
         }
       },
-      // protected:true
+      protected:true
       // resolve: {
       //   currentUser: function($http,$log,$state) {
       //     if(localStorage.getItem('Token')) {
@@ -83,7 +83,7 @@
       abstract: true,
       templateUrl: 'templates/tabs.html',
       controller: 'HomeCtrl',
-      // protected:true
+      protected:true
       // resolve: {
       //   currentUser: function($http,$log,$state) {
       //     if(localStorage.getItem('Token')) {
@@ -128,8 +128,8 @@
   // angular.module('starter').factory('authInterceptor', function ($location) {
   //   return {
   //     request: function(config) {
-  //       if (localStorage.getItem('token')) {
-  //         config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
+  //       if (localStorage.getItem('Token')) {
+  //         config.headers.Authorization = 'Bearer ' + localStorage.getItem('Token');
   //       }
   //       return config;
   //     },
