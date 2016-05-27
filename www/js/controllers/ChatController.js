@@ -15,7 +15,8 @@
     $scope.me = this;
     console.log(this);
 
-    $scope.me.current_room = $scope.you + 'chat' + localStorage.getItem('currentId')
+    $scope.me.current_room = $stateParams.userId;
+    // $scope.me.current_room = $scope.you + 'chat' + localStorage.getItem('currentId')
 
     $scope.me.rooms = [];
 
@@ -53,15 +54,18 @@
 
     $scope.me.messages = [];
     $scope.sendTextMessage = function(){
-
+      console.log(
+        'curr room',
+        $stateParams.userId
+      );
       var msg = {
-        'room': $scope.me.current_room,
+        'room': $stateParams.userId,
         'user': $scope.current_user,
         'text': $scope.me.message,
         'time': moment()
       };
 
-      console.log(msg);
+      console.log('send message', msg);
 
       $scope.me.messages.push(msg);
       $ionicScrollDelegate.scrollBottom();
@@ -86,6 +90,7 @@
 
 
     SocketService.on('message', function(msg){
+      console.log('message!', msg);
       $scope.me.messages.push(msg);
       $ionicScrollDelegate.scrollBottom();
     });
