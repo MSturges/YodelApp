@@ -1,10 +1,14 @@
-<ion-view view-title="HOME">
+<ion-view view-title="User">
   <div class="bar bar-header bar-stable">
-    <h1 class="title">Settings</h1>
+    <h1 class="title">Chat</h1>
   </div>
-  <ion-content class="has-header padding">
-
-    <h1>chat</h1>
-    {{currentUserId}}
+  <ion-content class="has-header">
+    <ion-item class="list-item" >
+      <div class="item-avatar" href="#">
+        <img src="../../img/YodelSkills.jpg">
+        <h2>{{singleUser.username}}</h2>
+        <h5>Interests: {{singleUser.interests}}</h5>
+      </div>
+    </ion-item>
   </ion-content>
 </ion-view>
