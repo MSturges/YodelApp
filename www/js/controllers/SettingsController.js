@@ -5,6 +5,7 @@
   .controller('SettingsCtrl', ['$scope', '$state', '$http', '$log','LoginService', 'SignUpService','SettingsService','$rootScope',function($scope, $state, $http, $log, LoginService, SignUpService, SettingsService,$rootScope) {
     $scope.logout = function() {
       localStorage.clear()
+      $rootScope.usersInRange=[];
       $state.go('login')
     }
     $scope.interests = {};

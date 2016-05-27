@@ -2,7 +2,7 @@
   angular.module('starter')
   .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation, $rootScope, $state, localStorageService,ngAudio) {
     $scope.sound = ngAudio.load("http://www.archive.org/download/SwissYodelCall/Track17_64kb.mp3")
-    
+
 
     $rootScope.currentUser = {}
     $rootScope.currentUser.username = localStorage.getItem('currentUser');
@@ -31,7 +31,7 @@
           results.data.forEach(function(element) {
             element.distance = (Math.acos(Math.sin($scope.newLocation.lat * Math.PI / 180) * Math.sin(element.lat * Math.PI / 180) + Math.cos($scope.newLocation.lat * Math.PI / 180) * Math.cos(element.lat * Math.PI / 180) * Math.cos((element.long * Math.PI / 180) - ($scope.newLocation.long * Math.PI / 180))) * 3959)
           })
-          $scope.usersInRange = results.data;
+          $rootScope.usersInRange = results.data;
           $scope.sound.play()
         })
       })
