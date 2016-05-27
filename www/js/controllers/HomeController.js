@@ -1,46 +1,46 @@
 (function() {
   angular.module('starter')
-    .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation) {
-      $scope.doItLive = function() {
+  .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation) {
 
-        var posOptions = {
-          timeout: 10000,
-          enableHighAccuracy: false
-        };
+    $scope.doItLive = function() {
 
-        $cordovaGeolocation
-          .getCurrentPosition(posOptions)
-          .then(function(position) {
-            $scope.newLocation = {};
-            $scope.newLocation.long = position.coords.longitude;
-            $scope.newLocation.lat = position.coords.latitude;
-            var newLocation = $scope.newLocation;
-            console.log(newLocation);
-            return newLocation
+      var posOptions = {
+        timeout: 10000,
+        enableHighAccuracy: false
+      };
+
+      $cordovaGeolocation
+      .getCurrentPosition(posOptions)
+      .then(function(position) {
+        $scope.newLocation = {};
+        $scope.newLocation.long = position.coords.longitude;
+        $scope.newLocation.lat = position.coords.latitude;
+        var newLocation = $scope.newLocation;
+        return newLocation
+      })
+      .then(function(newLocation) {
+        HomeService.goActive(newLocation)
+        .then(function(results) {
+          results.data.forEach(function(element) {
+            element.distance = (Math.acos(Math.sin($scope.newLocation.lat * Math.PI / 180) * Math.sin(element.lat * Math.PI / 180) + Math.cos($scope.newLocation.lat * Math.PI / 180) * Math.cos(element.lat * Math.PI / 180) * Math.cos((element.long * Math.PI / 180) - ($scope.newLocation.long * Math.PI / 180))) * 3959)
           })
-          .then(function(newLocation) {
-            HomeService.goActive(newLocation)
-              .then(function(results) {
-                results.data.forEach(function(element) {
-                  element.distance = (Math.acos(Math.sin($scope.newLocation.lat * Math.PI / 180) * Math.sin(element.lat * Math.PI / 180) + Math.cos($scope.newLocation.lat * Math.PI / 180) * Math.cos(element.lat * Math.PI / 180) * Math.cos((element.long * Math.PI / 180) - ($scope.newLocation.long * Math.PI / 180))) * 3959)
-                })
-                $scope.usersInRange = results.data;
-              })
-          })
-      }
+          $scope.usersInRange = results.data;
+        })
+      })
+    }
 
-      $scope.drag = function(rangeValue){
-        $scope.rangeValue = rangeValue
-      }
+    $scope.drag = function(rangeValue){
+      $scope.rangeValue = rangeValue
+    }
 
-      $scope.rangeValue = 30;
-      $scope.lessThan = function(input) {
-        if ((input * 10) < $scope.rangeValue){
-          return true
-        } else {
-          return false
-        }
+    $scope.rangeValue = 30;
+    $scope.lessThan = function(input) {
+      if ((input * 10) < $scope.rangeValue){
+        return true
+      } else {
+        return false
       }
-    })
+    }
+  })
 
 }());
