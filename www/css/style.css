@@ -1,29 +1,47 @@
+body {
+}
+
+#landingImg {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.bar-yellow {
+  background-color: rgb(255, 214, 127);
+}
+.button-yellow {
+  background-color: rgb(255, 214, 127);
+}
+
 ion-content {
-    margin-bottom: 50px !important;
+  /*background-color: rgb(255, 214, 127);;*/
+  background-color: rgb(255, 243, 220);;
 }
 
 .no-border {
-    border: none;
+  border: none;
 }
 
 .user {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .current-user {
-    float: left;
-    clear: both;
+  float: left;
+  clear: both;
 }
 
 .not-current-user {
-    float: right;
-    clear: both;
+  float: right;
+  clear: both;
 }
 
 .current-user .details {
-    background-color: #72CBFF;
+  background-color: #72CBFF;
 }
 
 .not-current-user .details {
-    background-color: #DCDCDC;
+  background-color: #DCDCDC;
 }
