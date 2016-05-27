@@ -3,9 +3,11 @@ body {
 
 #landingImg {
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 10000;
   -webkit-animation-delay: 2s;
+
 }
 
 .backimg {
@@ -19,11 +21,12 @@ body {
 }
 
 #backgroundImg {
+  margin: 0 auto;
   position: fixed;
   z-index: -1000;
   background-repeat: no-repeat;
   width: 100%;
-  background-size: cover !important;
+  background-size:cover;
 
 }
 
