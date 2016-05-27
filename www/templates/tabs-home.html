@@ -1,4 +1,4 @@
-<ion-view view-title="Welcome, {{currentUser.username}}! Start Yodelin'">
+<ion-view view-title="Home">
   <div class="bar bar-header bar-yellow">
     <h1 class="title">Yodelers</h1>
   </div>
@@ -21,11 +21,11 @@
         <img src="../../img/YodelSkills.jpg">
         <h2>{{user.username}}</h2>
         <ng-pluralize count="user.distance" when="{'0': 'No comments yet',
-                             '1': 'View 1 comment',
-                             'other': 'Distance from you: {{user.distance | number: 1}} miles.'}">
-        </ng-pluralize>
-        <h5>Interests: {{user.interests}}</h5>
-      </div>
-    </ion-item>
-  </ion-content>
+        '1': 'View 1 comment',
+        'other': 'Distance from you: {{user.distance | number: 1}} miles.'}">
+      </ng-pluralize>
+      <h5>Interests: {{user.interests}}</h5>
+    </div>
+  </ion-item>
+</ion-content>
 </ion-view>
