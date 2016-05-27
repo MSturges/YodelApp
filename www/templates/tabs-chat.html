@@ -13,8 +13,8 @@
 
 
 
-    <div class="list" ng-if="room_ctrl.messages.length > 0">
-      <li class="item item-text-wrap no-border {{ isNotCurrentUser(msg.user) }}" ng-repeat="msg in room_ctrl.messages">
+    <div class="list" ng-if="me.messages.length > 0">
+      <li class="item item-text-wrap no-border {{ isNotCurrentUser(msg.user) }}" ng-repeat="msg in me.messages">
         <div class="msg">
           <div class="details padding">
             <p>
@@ -27,16 +27,16 @@
       </li>
     </div>
 
-    <div class="card" ng-if="!room_ctrl.messages.length">
+    <div class="card" ng-if="!me.messages.length">
       <div class="item item-text-wrap">
         No messages yet.
       </div>
     </div>
 
-    
-    <footer class="bar bar-footer bar-positive item-input-inset">
+
+    <footer style='position: relative' class="bar bar-footer bar-positive item-input-inset">
       <label class="item-input-wrapper">
-        <input type="text" id="message" name="message" ng-model="room_ctrl.message" placeholder="Type message">
+        <input type="text" id="message" name="message" ng-model="me.message" placeholder="Type message">
       </label>
       <a class="button button-icon icon ion-android-send" ng-click="sendTextMessage()"></a>
     </footer>

@@ -11,85 +11,85 @@
       $scope.singleUser = singleUser.success.data;
     })
 
-    // var you = $scope.selectedUserId;
-    // var me = this;
-    //
-    // me.current_room = you + 'chat' + localStorage.getItem('currentId')
-    // console.log(me.current_room);
-    //
-    // me.rooms = [];
-    //
-    // var room_name = me.current_room;
-    //
-    //
-    // $scope.enterRoom = function(room_name){
-    //   console.log('room');
-    //   me.current_room = room_name;
-    //   localStorageService.set('room', room_name);
-    //
-    //   var room = {
-    //     'room_name': room_name
-    //   };
-    //
-    //   SocketService.emit('join:room', room);
-    //
-    // }();
-    //
-    // me.messages = [];
-    //
-    // $scope.humanize = function(timestamp){
-    //   return moment(timestamp).fromNow();
-    // };
-    //
-    // me.current_room = localStorageService.get('room');
-    //
-    // var current_user = localStorageService.get('currentUser');
-    //
-    // $scope.isNotCurrentUser = function(user){
-    //   if(current_user != user){
-    //     return 'not-current-user';
-    //   }
-    //   return 'current-user';
-    // };
-    //
-    // $scope.sendTextMessage = function(){
-    //
-    //   var msg = {
-    //     'room': me.current_room,
-    //     'user': current_user,
-    //     'text': me.message,
-    //     'time': moment()
-    //   };
-    //
-    //   me.messages.push(msg);
-    //   $ionicScrollDelegate.scrollBottom();
-    //
-    //   me.message = '';
-    //
-    //   SocketService.emit('send:message', msg);
-    // };
-    //
-    //
-    //
-    //
-    // $scope.leaveRoom = function(){
-    //   var msg = {
-    //     'user': current_user,
-    //     'room': me.current_room,
-    //     'time': moment()
-    //   };
-    //
-    //   SocketService.emit('leave:room', msg);
-    //   $state.go('rooms');
-    //
-    // };
-    //
-    //
-    // SocketService.on('message', function(msg){
-    //   me.messages.push(msg);
-    //   $ionicScrollDelegate.scrollBottom();
-    // });
-    //
+    $scope.you = $scope.selectedUserId;
+    $scope.me = this;
+    console.log(this);
+
+    $scope.me.current_room = $scope.you + 'chat' + localStorage.getItem('currentId')
+
+    $scope.me.rooms = [];
+
+    var room_name = $scope.me.current_room;
+    $scope.thisRoom = room_name;
+
+    $scope.enterRoom = function(){
+      $scope.me.current_room = room_name;
+      localStorageService.set('room', room_name);
+
+      $scope.room = {
+        'room_name': room_name
+      };
+
+      SocketService.emit('join:room', $scope.room);
+
+    }();
+
+
+    $scope.humanize = function(timestamp){
+      return moment(timestamp).fromNow();
+    };
+
+    $scope.me.current_room = localStorage.getItem('room');
+    console.log(localStorageService.get('room'));
+
+    $scope.current_user = localStorage.getItem('currentUser');
+
+    $scope.isNotCurrentUser = function(user){
+      if($scope.current_user != user){
+        return 'not-current-user';
+      }
+      return 'current-user';
+    };
+
+    $scope.me.messages = [];
+    $scope.sendTextMessage = function(){
+
+      var msg = {
+        'room': $scope.me.current_room,
+        'user': $scope.current_user,
+        'text': $scope.me.message,
+        'time': moment()
+      };
+
+      console.log(msg);
+
+      $scope.me.messages.push(msg);
+      $ionicScrollDelegate.scrollBottom();
+
+      $scope.me.message = '';
+
+      SocketService.emit('send:message', msg);
+    };
+
+
+    $scope.leaveRoom = function(){
+      $scope.msg = {
+        'user': $scope.current_user,
+        'room': $scope.me.current_room,
+        'time': moment()
+      };
+
+      SocketService.emit('leave:room', msg);
+      $state.go('rooms');
+
+    };
+
+
+    SocketService.on('message', function(msg){
+      $scope.me.messages.push(msg);
+      $ionicScrollDelegate.scrollBottom();
+    });
+
 
 
   }])
