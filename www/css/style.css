@@ -6,6 +6,22 @@ body {
   top: 0;
   width: 100%;
   z-index: 10000;
+  -webkit-animation-delay: 2s;
+
+}
+
+#backgroundImg {
+  position: fixed;
+  z-index: -1000;
+  background-repeat: no-repeat;
+  /*background-image: url('../img/yodellogobackground.jpg');*/
+  width: 100%;
+  background-size:contain;
+
+}
+
+#yodelbutton {
+  z-index: 1000
 }
 
 .bar-yellow {
@@ -13,6 +29,19 @@ body {
 }
 .button-yellow {
   background-color: rgb(255, 214, 127);
+}
+
+.tabs-color-yellow {
+  background-color: rgb(255, 214, 127);
+}
+
+.tabs .tab-item .icon.mcfly {
+  bottom: 10px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/yodellogosmall.jpg');
+  background-size:contain;
 }
 
 ion-content {

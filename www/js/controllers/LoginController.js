@@ -6,16 +6,14 @@
 
     $scope.user = {}
     var userObj = $scope.user
-
+    $scope.landing = 1;
 
     $scope.landingImage = function(){
-
-      $scope.landing = 1;
 
       $timeout(function(){
         console.log('switch');
         $scope.landing = 0;
-      }, 2000)
+      }, 3000)
 
     }()
 
