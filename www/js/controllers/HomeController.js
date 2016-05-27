@@ -1,6 +1,7 @@
 (function() {
   angular.module('starter')
     .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation) {
+
       $scope.doItLive = function() {
 
         var posOptions = {
@@ -15,7 +16,6 @@
             $scope.newLocation.long = position.coords.longitude;
             $scope.newLocation.lat = position.coords.latitude;
             var newLocation = $scope.newLocation;
-            console.log(newLocation);
             return newLocation
           })
           .then(function(newLocation) {
@@ -28,13 +28,12 @@
               })
           })
       }
-
-      $scope.drag = function(rangeValue){
+      $scope.drag = function(rangeValue) {
         $scope.rangeValue = rangeValue
       }
       $scope.rangeValue = 30;
       $scope.lessThan = function(input) {
-        if ((input * 10) < $scope.rangeValue){
+        if ((input * 10) < $scope.rangeValue) {
           return true
         } else {
           return false

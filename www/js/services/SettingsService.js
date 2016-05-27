@@ -20,6 +20,7 @@ return {
       var deferred = $q.defer();
       $http.get('http://yodelappbcjmm.herokuapp.com/settingsretrieve')
       .then(function(success){
+        console.log('success: ', success)
         deferred.resolve(success)
       })
       .catch(function(error){

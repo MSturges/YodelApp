@@ -12,7 +12,13 @@
     }
 
     $scope.interests = {};
-    $scope.interests.body = SettingsService.retrieveInterests();
+
+    $scope.interests.body = function(){
+      SettingsService.retrieveInterests().then(function(results){
+        console.log('results: ', results.data)
+        $scope.interests.body = results.data
+      })
+    }();
 
     var settingsObj = $scope.interests
 

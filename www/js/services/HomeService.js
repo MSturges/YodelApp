@@ -14,7 +14,6 @@ angular.module('starter')
         active: true
       }
 
-      console.log(activeLocation);
 
       $http.post('http://yodelappbcjmm.herokuapp.com/goactive', activeLocation)
 
