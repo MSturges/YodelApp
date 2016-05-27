@@ -1,4 +1,4 @@
- angular.module('starter', ['ionic', 'LocalStorageModule', 'btford.socket-io', 'angularMoment', 'ngCordova'])
+ angular.module('starter', ['ionic', 'LocalStorageModule', 'btford.socket-io', 'angularMoment', 'ngCordova','ngAudio'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
