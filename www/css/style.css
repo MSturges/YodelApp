@@ -8,6 +8,39 @@ body {
   z-index: 10000;
 }
 
+.searchAndDistance {
+  width: 100%;
+  background-color: rgb(252, 224, 164);
+  position: relative;
+  padding: 0px;
+}
+
+.searchDiv {
+  width:40%;
+  margin-left: 3%;
+  margin-right: 5%;
+  top: -7px;
+  position: relative;
+  display: inline-block;
+
+}
+
+.dragDiv {
+  width: 40%;
+  margin-left: 5%;
+  top: 2px;
+  display: inline-block;
+  position: relative;
+}
+
+.searchField {
+  width: 100%;
+}
+
+.dragBar {
+  width: 100%;
+}
+
 .bar-yellow {
   background-color: rgb(255, 214, 127);
 }
@@ -17,7 +50,7 @@ body {
 
 ion-content {
   /*background-color: rgb(255, 214, 127);;*/
-  background-color: rgb(255, 243, 220);;
+  background-color: rgb(255, 243, 220);
 }
 
 .no-border {
