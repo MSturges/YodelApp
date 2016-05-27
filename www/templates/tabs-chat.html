@@ -1,14 +1,47 @@
 <ion-view view-title="User">
-  <div class="bar bar-header bar-stable">
+  <div class="bar bar-header bar-yellow">
     <h1 class="title">Chat</h1>
   </div>
   <ion-content class="has-header">
     <ion-item class="list-item" >
       <div class="item-avatar" href="#">
         <img src="../../img/YodelSkills.jpg">
-        <h2>{{singleUser.username}}</h2>
-        <h5>Interests: {{singleUser.interests}}</h5>
+        <h1>{{singleUser.username}}</h1>
+        <h3>Interests: {{singleUser.interests}}</h3>
       </div>
     </ion-item>
+
+
+
+    <div class="list" ng-if="me.messages.length > 0">
+      <li class="item item-text-wrap no-border {{ isNotCurrentUser(msg.user) }}" ng-repeat="msg in me.messages">
+        <div class="msg">
+          <div class="details padding">
+            <p>
+              <div class="user">{{ msg.user }}</div>
+              <div class="message">{{ msg.text }}</div>
+            </p>
+            <small>{{ humanize(msg.time) }}</small>
+          </div>
+        </div>
+      </li>
+    </div>
+
+    <div class="card" ng-if="!me.messages.length">
+      <div class="item item-text-wrap">
+        No messages yet.
+      </div>
+    </div>
+
+
+    <footer style='position: relative' class="bar bar-footer bar-yellow item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" id="message" name="message" ng-model="me.message" placeholder="Type message">
+      </label>
+      <a class="button button-icon icon ion-android-send" ng-click="sendTextMessage()"></a>
+    </footer>
+
+
   </ion-content>
+
 </ion-view>

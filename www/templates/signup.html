@@ -1,5 +1,9 @@
 <ion-view view-title="Sign Up">
-  <ion-content class="padding">
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="has-header padding">
     <div class="list list-inset">
 
       <label class="item item-input">
@@ -11,12 +15,12 @@
       </label>
 
       <!-- <label class="item item-input">
-        <input type="password" placeholder="Verify Password" ng-model="user.verifyPassword">
-      </label> -->
+      <input type="password" placeholder="Verify Password" ng-model="user.verifyPassword">
+    </label> -->
 
-    </div>
-    <button class="button button-block button-positive" ng-click="signUp()">Sign Up</button>
+  </div>
+  <button class="button button-block button-positive" ng-click="signUp()">Sign Up</button>
 
 
-  </ion-content>
+</ion-content>
 </ion-view>

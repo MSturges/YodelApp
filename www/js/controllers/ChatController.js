@@ -2,37 +2,94 @@
   'use strict';
 
   angular.module('starter')
-  .controller('ChatCtrl', ['$scope', '$state', '$http', '$log','$stateParams', 'localStorageService', 'ChatService', function($scope, $state, $http, $log, $stateParams, localStorageService, ChatService) {
+  .controller('ChatCtrl', ['$scope', '$state', '$http', '$log','$stateParams', 'localStorageService', 'ChatService', 'SocketService', 'moment', '$ionicScrollDelegate', function($scope, $state, $http, $log, $stateParams, localStorageService, ChatService, SocketService, moment, $ionicScrollDelegate) {
 
     $scope.selectedUserId = $stateParams.userId;
 
-
-
     ChatService.getSingleUser($scope.selectedUserId)
     .then(function(singleUser){
-      console.log(singleUser);
-      console.log('user:' + singleUser.success.data.username);
       $scope.singleUser = singleUser.success.data;
     })
+    $scope.you = $scope.selectedUserId;
+    $scope.me = this;
+    console.log(this);
 
+    $scope.me.current_room = $stateParams.userId;
+    // $scope.me.current_room = $scope.you + 'chat' + localStorage.getItem('currentId')
 
-    var you = $scope.selectedUserId;
-    var me = this;
+    $scope.me.rooms = [];
 
-    me.current_room = you + 'chat' + localStorage.getItem('currentId')
+    var room_name = $scope.me.current_room;
+    $scope.thisRoom = room_name;
 
-    me.rooms = [];
-
-    var room_name = localStorage.getItem('currentId')
-
-    $scope.enterRoom = function(room_name){
-      me.current_room = room_name;
+    $scope.enterRoom = function(){
+      $scope.me.current_room = room_name;
       localStorageService.set('room', room_name);
-      var room = {
+
+      $scope.room = {
         'room_name': room_name
       };
-      SocketService.emit('join:room', room);
-      $state.go('room');
+
+      SocketService.emit('join:room', $scope.room);
+
+    }();
+
+
+    $scope.humanize = function(timestamp){
+      return moment(timestamp).fromNow();
     };
+
+    $scope.me.current_room = localStorage.getItem('room');
+    console.log(localStorageService.get('room'));
+
+    $scope.current_user = localStorage.getItem('currentUser');
+
+    $scope.isNotCurrentUser = function(user){
+      if($scope.current_user != user){
+        return 'not-current-user';
+      }
+      return 'current-user';
+    };
+
+    $scope.me.messages = [];
+    $scope.sendTextMessage = function(){
+      console.log(
+        'curr room',
+        $stateParams.userId
+      );
+      var msg = {
+        'room': $stateParams.userId,
+        'user': $scope.current_user,
+        'text': $scope.me.message,
+        'time': moment()
+      };
+
+      console.log('send message', msg);
+
+      $scope.me.messages.push(msg);
+      $ionicScrollDelegate.scrollBottom();
+
+      $scope.me.message = '';
+
+      SocketService.emit('send:message', msg);
+    };
+
+
+    $scope.leaveRoom = function(){
+      $scope.msg = {
+        'user': $scope.current_user,
+        'room': $scope.me.current_room,
+        'time': moment()
+      };
+
+      SocketService.emit('leave:room', msg);
+      $state.go('rooms');
+
+    };
+    SocketService.on('message', function(msg){
+      console.log('message!', msg);
+      $scope.me.messages.push(msg);
+      $ionicScrollDelegate.scrollBottom();
+    });
   }])
 }());
