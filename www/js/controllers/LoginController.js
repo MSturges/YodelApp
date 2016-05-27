@@ -2,10 +2,22 @@
   'use strict';
 
   angular.module('starter')
-  .controller('LoginCtrl', ['$scope', '$state', '$http', '$log','LoginService',function($scope, $state, $http, $log,LoginService) {
+  .controller('LoginCtrl', ['$scope', '$state', '$http', '$log','LoginService', '$timeout', function($scope, $state, $http, $log,LoginService, $timeout) {
 
     $scope.user = {}
     var userObj = $scope.user
+
+
+    $scope.landingImage = function(){
+
+      $scope.landing = 1;
+
+      $timeout(function(){
+        console.log('switch');
+        $scope.landing = 0;
+      }, 2000)
+
+    }()
 
     $scope.login = function() {
       $log.info('login clicked')
