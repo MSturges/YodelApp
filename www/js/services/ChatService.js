@@ -5,7 +5,7 @@ angular.module('starter')
     getSingleUser: function (userId){
       var deferred = $q.defer();
 
-       $http.get('http://yodelappbcjmm.herokuapp.com/singleuser/' + userId)
+      $http.get('http://yodelappbcjmm.herokuapp.com/singleuser/' + userId)
 
       .then(function(success){
         deferred.resolve({success: success})
@@ -14,8 +14,6 @@ angular.module('starter')
       .catch(function(error){
         deferred.reject(error)
       })
-      
-      console.log(deferred.promise);
       return deferred.promise;
     }
 

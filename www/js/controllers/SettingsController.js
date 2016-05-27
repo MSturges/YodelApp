@@ -2,23 +2,21 @@
   'use strict';
 
   angular.module('starter')
-  .controller('SettingsCtrl', ['$scope', '$state', '$http', '$log','LoginService', 'SignUpService','SettingsService',function($scope, $state, $http, $log, LoginService, SignUpService, SettingsService) {
-
-
-
+  .controller('SettingsCtrl', ['$scope', '$state', '$http', '$log','LoginService', 'SignUpService','SettingsService','$rootScope',function($scope, $state, $http, $log, LoginService, SignUpService, SettingsService,$rootScope) {
     $scope.logout = function() {
       localStorage.clear()
+      // $rootScope.currentUser = {}
       $state.go('login')
     }
-
     $scope.interests = {};
+    $scope.interests.id = localStorage.getItem('currentId');
 
-    $scope.interests.body = function(){
-      SettingsService.retrieveInterests().then(function(results){
+      SettingsService.retrieveInterests($scope.interests.id)
+      .then(function(results){
         console.log('results: ', results.data)
-        $scope.interests.body = results.data
+        $scope.interests.body = results.data;
+        return null
       })
-    }();
 
     var settingsObj = $scope.interests
 
@@ -28,4 +26,5 @@
     }
 
   }])
+
 }());
