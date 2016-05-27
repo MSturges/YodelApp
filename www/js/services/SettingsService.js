@@ -1,5 +1,5 @@
 angular.module('starter')
-.factory('SignUpService', function ($http, $q, $log) {
+.factory('SettingsService', function ($http, $q, $log) {
 
 return {
 
@@ -16,5 +16,16 @@ return {
       return deferred.promise;
     },
 
-  }
+    retrieveInterests: function(){
+      var deferred = $q.defer();
+      $http.get('http://yodelappbcjmm.herokuapp.com/settingsretrieve')
+      .then(function(success){
+        deferred.resolve(success)
+      })
+      .catch(function(error){
+        deferred.reject(error)
+      })
+      return deferred.promise;
+      }
+    }
 })
