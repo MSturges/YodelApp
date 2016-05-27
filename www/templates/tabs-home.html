@@ -3,9 +3,7 @@
     <h1 class="title">Yodelers</h1>
   </div>
   <ion-content class="has-header">
-    <img id='backgroundImg' src="../img/yodellogobackground.jpg" >
-
-    <div class="searchAndDistance">
+  <div class="searchAndDistance">
       <form class="" role="search">
         <div class="searchDiv">
           <input class="searchField" ng-model="search" type="text" placeholder="Search">
@@ -16,6 +14,11 @@
         </div>
       </form>
     </div>
+
+    <div class='backimg' >
+      <img src="../img/yodellogobackground.jpg" class='backimg' >
+    </div>
+
     <ion-item class="list-item" ng-repeat='user in usersInRange | filter: search' ng-show="lessThan(user.distance)" ui-sref="tabs.chat({userId: user.id})">
       <div class="item-avatar" href="#">
         <img src="../../img/YodelSkills.jpg">
