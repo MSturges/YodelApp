@@ -1,14 +1,14 @@
 angular.module('starter')
-.factory('HomeService', ['$http', '$q', '$log',function ($http, $q, $log) {
+.factory('HomeService', ['$http', '$q', '$log','$rootScope',function ($http, $q, $log,$rootScope) {
   return {
 
     goActive: function (newLocation){
       var deferred = $q.defer();
 
-      var currentUser = localStorage.getItem('Token')
+      // var currentUser = localStorage.getItem('Token')
 
       var activeLocation = {
-        currentUser: currentUser,
+        id: newLocation.id,
         lat: newLocation.lat,
         long: newLocation.long,
         active: true
