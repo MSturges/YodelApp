@@ -10,7 +10,6 @@
     .then(function(singleUser){
       $scope.singleUser = singleUser.success.data;
     })
-
     $scope.you = $scope.selectedUserId;
     $scope.me = this;
     console.log(this);
@@ -87,15 +86,10 @@
       $state.go('rooms');
 
     };
-
-
     SocketService.on('message', function(msg){
       console.log('message!', msg);
       $scope.me.messages.push(msg);
       $ionicScrollDelegate.scrollBottom();
     });
-
-
-
   }])
 }());
