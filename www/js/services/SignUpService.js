@@ -1,11 +1,11 @@
 angular.module('starter')
 .factory('SignUpService', function ($http, $q, $log) {
 
-return {
+  return {
 
     signUp: function (userObj){
       var deferred = $q.defer();
-      $http.post('http://yodelappbcjmm.herokuapp.com/signup', userObj)
+      $http.post('http://yodelappbcjmm.herokuapp.com/settings', userObj)
       .then(function(success){
         deferred.resolve(success)
       })
