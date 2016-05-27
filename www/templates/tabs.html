@@ -7,10 +7,15 @@
   </ion-tab>
 
   <!-- Go Live Tab -->
-  <ion-tab  title="Location" icon-off="ion-ios-location-outline" ng-click="doItLive()">
-  </ion-tab >
+  <div ng-click="playSound()">
+    <ion-tab  title="Location" icon-off="ion-ios-location-outline"  ng-click="doItLive()" >
+    </ion-tab>
+  </div>
 
-<!-- settings -->
+  <!-- <button ng-audio="http://www.archive.org/download/SwissYodelCall/Track17_64kb.mp3
+  " ng-click="doItLive()">YODEL</button> -->
+
+  <!-- settings -->
   <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear-outline" href="#/tabs/settings">
     <ion-nav-view name="tab-settings"></ion-nav-view>
   </ion-tab>

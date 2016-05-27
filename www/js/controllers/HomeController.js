@@ -1,6 +1,6 @@
 (function() {
   angular.module('starter')
-  .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation, $rootScope, $state, localStorageService) {
+  .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation, $rootScope, $state, localStorageService,ngAudio) {
     $rootScope.currentUser = {}
     $rootScope.currentUser.username = localStorage.getItem('currentUser');
     $rootScope.currentUser.id = localStorage.getItem('currentId');
