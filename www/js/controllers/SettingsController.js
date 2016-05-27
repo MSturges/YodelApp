@@ -21,7 +21,7 @@
     $scope.submit = function(){
       console.log(settingsObj);
       SettingsService.updateInterests(settingsObj)
-      // $state.go('tabs.home')
+      $state.go('tabs.home')
     }
   }])
 }());
