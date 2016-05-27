@@ -20,8 +20,9 @@
     var settingsObj = $scope.interests
 
     $scope.submit = function(){
-      console.log(settingsObj);
-      SettingsService.updateInterests(settingsObj)
+      console.log('submit');
+      SettingsService.updateInterests($scope.interests)
+      $scope.interests= {}
       $state.go('tabs.home')
     }
   }])

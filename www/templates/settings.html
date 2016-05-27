@@ -8,7 +8,7 @@
     <h1>Settings</h1>
     <button ng-click="logout()" type="button" name="button">Log Out!</button>
 
-    <form name="postForm" ng-submit="submit()">
+    <!-- <form name="postForm" ng-submit="submit()"> -->
     <div ng-class="{'has-error':postForm.interests.$invalid && postForm.interests.$dirty, 'has-success': postForm.interests.$valid}" class="form-group">
       <label for="interests">Interests:</label>
       <input class="form-control" id="interests" ng-model="interests.body" type="text" name="interests" placeholder="Interests" ng-minlength="0" ng-maxlength="255" required>
@@ -16,7 +16,7 @@
         Interests cannot be blank and must be less than 255 characters.
       </div>
     </div>
-    <input type="submit" value="submit interests">
-  </form>
+    <button ng-click="submit()">Submit</button>
+  <!-- </form> -->
   </ion-content>
 </ion-view>
