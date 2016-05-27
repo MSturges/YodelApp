@@ -3,7 +3,8 @@
     <h1 class="title">Yodelers</h1>
   </div>
   <ion-content class="has-header">
-    <img id='backgroundImg' src="../img/yodellogobackground.jpg" >
+    <!-- <img id='backgroundImg' src="../img/yodellogobackground.jpg" > -->
+
 
     <div class="searchAndDistance">
       <form class="" role="search">
@@ -16,16 +17,22 @@
         </div>
       </form>
     </div>
+
+    <div class='backimg' >
+      <img src="../img/yodellogobackground.jpg" class='backimg' >
+    </div>
+
     <ion-item class="list-item" ng-repeat='user in usersInRange | filter: search' ng-show="lessThan(user.distance)" ui-sref="tabs.chat({userId: user.id})">
       <div class="item-avatar" href="#">
         <img src="../../img/YodelSkills.jpg">
         <h2>{{user.username}}</h2>
         <ng-pluralize count="user.distance" when="{'0': 'No comments yet',
-                             '1': 'View 1 comment',
-                             'other': 'Distance from you: {{user.distance | number: 1}} miles.'}">
-        </ng-pluralize>
-        <h5>Interests: {{user.interests}}</h5>
-      </div>
-    </ion-item>
-  </ion-content>
+        '1': 'View 1 comment',
+        'other': 'Distance from you: {{user.distance | number: 1}} miles.'}">
+      </ng-pluralize>
+      <h5>Interests: {{user.interests}}</h5>
+    </div>
+  </ion-item>
+  <!-- </div> -->
+</ion-content>
 </ion-view>

@@ -10,13 +10,23 @@ body {
 
 }
 
+.backimg {
+  /*background-repeat: no-repeat;
+  width: 100%;
+  background-image: url('../img/yodellogobackground.jpg');*/
+  vertical-align: top;
+  z-index: -1000;
+  width: 100%;
+  position: fixed;
+}
+
 #backgroundImg {
+  margin: 0 auto;
   position: fixed;
   z-index: -1000;
   background-repeat: no-repeat;
-  /*background-image: url('../img/yodellogobackground.jpg');*/
   width: 100%;
-  background-size:contain;
+  background-size:cover;
 
 }
 
