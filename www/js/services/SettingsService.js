@@ -4,6 +4,7 @@ angular.module('starter')
   return {
     updateInterests: function (settingsObj){
       console.log('In service: ', settingsObj)
+
       // var deferred = $q.defer();
       return $http.post('http://yodelappbcjmm.herokuapp.com/settingsupdate', settingsObj)
       // .then(function(success){
@@ -14,7 +15,6 @@ angular.module('starter')
       // })
       // return deferred.promise;
     },
-
     retrieveInterests: function(id){
       // var deferred = $q.defer();
       return $http.get('http://yodelappbcjmm.herokuapp.com/settingsretrieve/'+id)
