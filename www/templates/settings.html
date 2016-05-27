@@ -11,7 +11,7 @@
     <form name="postForm" ng-submit="submit()">
     <div ng-class="{'has-error':postForm.interests.$invalid && postForm.interests.$dirty, 'has-success': postForm.interests.$valid}" class="form-group">
       <label for="interests">Interests:</label>
-      <input class="form-control" id="interests" ng-model="interests" type="text" name="interests" placeholder="Interests" ng-minlength="0" ng-maxlength="255" required>
+      <input class="form-control" id="interests" ng-model="interests.body" type="text" name="interests" placeholder="Interests" ng-minlength="0" ng-maxlength="255" required>
       <div class="error" ng-show="postForm.interests.$invalid">
         Interests cannot be blank and must be less than 255 characters.
       </div>

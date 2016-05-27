@@ -32,7 +32,6 @@
       $scope.drag = function(rangeValue){
         $scope.rangeValue = rangeValue
       }
-
       $scope.rangeValue = 30;
       $scope.lessThan = function(input) {
         if ((input * 10) < $scope.rangeValue){
