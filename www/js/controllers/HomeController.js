@@ -1,7 +1,10 @@
 (function() {
   angular.module('starter')
-  .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation) {
-
+  .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation,$rootScope) {
+    $rootScope.currentUser = {}
+    $rootScope.currentUser.username = localStorage.getItem('currentUser');
+    $rootScope.currentUser.id = localStorage.getItem('currentId');
+    $log.info('currentUser',$rootScope.currentUser)
     $scope.doItLive = function() {
 
       var posOptions = {
@@ -13,6 +16,7 @@
       .getCurrentPosition(posOptions)
       .then(function(position) {
         $scope.newLocation = {};
+        $scope.newLocation.id = $rootScope.currentUser.id
         $scope.newLocation.long = position.coords.longitude;
         $scope.newLocation.lat = position.coords.latitude;
         var newLocation = $scope.newLocation;

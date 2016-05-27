@@ -83,7 +83,7 @@
       abstract: true,
       templateUrl: 'templates/tabs.html',
       controller: 'HomeCtrl',
-      // protected:true
+      protected:true
       // resolve: {
       //   currentUser: function($http,$log,$state) {
       //     if(localStorage.getItem('Token')) {
@@ -114,31 +114,31 @@
   })
   // app.run runs once when the app starts
   // this improves user experience
-  // angular.module('starter').run(function ($rootScope, $location, $window, $log,$state) {
-  //   $rootScope.$on('$stateChangeStart',
-  //   function(event, toState, toParams, fromState, fromParams, options){
-  //     // event.preventDefault();
-  //     if(toState.protected && !localStorage.getItem('Token')) {
-  //       console.log("requires login dude!!!");
-  //       const LoginError = "Please Login!"
-  //       $state.go('login')
-  //     }
-  //   })
-  // });
-  // angular.module('starter').factory('authInterceptor', function ($location) {
-  //   return {
-  //     request: function(config) {
-  //       if (localStorage.getItem('token')) {
-  //         config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
-  //       }
-  //       return config;
-  //     },
-  //     responseError: function(response) {
-  //       console.log('from the interceptor: ',response);
-  //       return response;
-  //     }
-  //   };
-  // })
+  angular.module('starter').run(function ($rootScope, $location, $window, $log,$state) {
+    $rootScope.$on('$stateChangeStart',
+    function(event, toState, toParams, fromState, fromParams, options){
+      // event.preventDefault();
+      if(toState.protected && !localStorage.getItem('Token')) {
+        console.log("requires login dude!!!");
+        const LoginError = "Please Login!"
+        $state.go('login')
+      }
+    })
+  });
+  angular.module('starter').factory('authInterceptor', function ($location) {
+    return {
+      request: function(config) {
+        if (localStorage.getItem('Token')) {
+          config.headers.Authorization = 'Bearer ' + localStorage.getItem('Token');
+        }
+        return config;
+      },
+      responseError: function(response) {
+        console.log('from the interceptor: ',response);
+        return response;
+      }
+    };
+  })
 
 
 }());
