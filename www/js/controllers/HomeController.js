@@ -1,8 +1,7 @@
 (function() {
   angular.module('starter')
-  .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation, $rootScope, $state, localStorageService,ngAudio) {
+  .controller('HomeCtrl', function($scope, $log, HomeService, $cordovaGeolocation, $rootScope, $state, localStorageService, ngAudio) {
     $scope.sound = ngAudio.load("http://www.archive.org/download/SwissYodelCall/Track17_64kb.mp3")
-
 
     $rootScope.currentUser = {}
     $rootScope.currentUser.username = localStorage.getItem('currentUser');
